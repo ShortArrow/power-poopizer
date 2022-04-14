@@ -5,7 +5,6 @@ $sut = $sut -replace ".ps1", ".psm1"
 Import-Module $here/src/$sut -Force
 Describe "main" {
     BeforeAll {
-        
     }
     It "can split string by every comma" {
         $res = (Get-PoopFromChar "G")
@@ -16,5 +15,7 @@ Describe "main" {
     }
     It "union test split Insert" {
         33 | Should -Be 33
+    }
+    AfterAll {
     }
 }
