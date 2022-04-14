@@ -2,14 +2,14 @@ using namespace System.Collections.Generic
 $here = "$(Split-Path -Parent (Split-Path -Parent $PSCommandPath))"
 $sut = (Split-Path -Leaf $PSCommandPath) -replace ".Tests.", "."
 $sut = $sut -replace ".ps1", ".psm1"
-. $here/src/$sut
+Import-Module $here/src/$sut -Force
 Describe "main" {
     BeforeAll {
         
     }
     It "can split string by every comma" {
-        
-        1 | Should -Be 1
+        $res = (Get-PoopFromChar "G")
+        $res | Should -Be "G"
     }
     It "not lost existing value before processing" {
         2 | Should -Be 2
