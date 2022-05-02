@@ -11,7 +11,7 @@ Poopizer will now be on your console as well.
 I'm looking forward to it! !!
 
 ```powershell
-Install-Module -Name psPoopizer
+Install-Module -Name poopizer
 ```
 
 ### Launch of Poopizer
@@ -27,7 +27,7 @@ Start-Poopizer
 For `0.0.1`, specify the version of Poopizer you like.
 
 ```powershell
-Install-Module -Name psPoopizer -RequiredVersion 0.0.1
+Install-Module -Name poopizer -RequiredVersion 0.0.1
 ```
 
 ### Update of Poopizer
@@ -36,7 +36,7 @@ If, after installing the old Poopizer
 If you want to use the latest Poopizer, cast this spell.
 
 ```powershell
-Install-Module -Name psPoopizer -Force
+Install-Module -Name poopizer -Force
 ```
 
 ### Elimination of Poopizer
@@ -45,5 +45,5 @@ If you don't need Poopizer anymore
 Cast this spell.
 
 ```powershell
-Uninstall-Module -Name psPoopizer
+Uninstall-Module -Name poopizer
 ```
