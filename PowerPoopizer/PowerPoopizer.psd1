@@ -69,7 +69,7 @@ PowerShellVersion = '7.0'
 NestedModules     = @('PowerPoopizer.psm1')
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Get-PoopFromChar')
+FunctionsToExport = @('Get-PoopFromChar','Get-PoopsFromString','Get-PoopFromNum','Get-PoopHappyChecker','Get-UnkoBlink','Show-PoopProgress')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 # CmdletsToExport = @()
