@@ -99,103 +99,55 @@ function Get-PoopHappyChecker {
     $DarkPoop = "`e[48;5;1m💩`e[0m"
     $RightDirectionPoopBar = ($LightPoop + $DarkPoop) * ($Width / 2)
     $ReverseDirectionPoopBar = ($DarkPoop + $LightPoop) * ($Width / 2)
-    $WallPoops = ($RightDirectionPoopBar + $ReverseDirectionPoopBar)* ($Height / 2)
+    $WallPoops = ($RightDirectionPoopBar + $ReverseDirectionPoopBar) * ($Height / 2)
     write-host $WallPoops
 }
 
 <#
 .SYNOPSIS
-Search CSV data for a word that means "poop"
+Output Blinking Poop
 .EXAMPLE
-Get-UnkoDictionary -Name "う" -Language "Ja"
+Get-PoopBlink
 #>
-function Get-UnkoDictionary {
-    Param
-    (
-        [String] $Name,
-        [String] $Language
-    )
-
-    Import-Csv ./lib/unko.csv | Where-Object {
-        ($_.Name -ILike "*${Name}*") -and ($_.Language -ILike "*${Language}*")
-    }
+function Get-UnkoBlink {
+    Param()
+    $Reverse = "$($PSStyle.Reverse)"
+    $Blink = "$($PSStyle.Blink)"
+    $PoopRed = "$($PSStyle.Foreground.Red)💩"
+    $PoopGreen = "$($PSStyle.Foreground.Green)💩"
+    $PoopBlue = "$($PSStyle.Foreground.Blue)💩"
+    $Reset = "$($PSStyle.Reset)"
+    Write-Host "$($Reverse+$Blink+$PoopRed+$PoopGreen+$PoopBlue+$Reset)"
 }
 
 <#
 .SYNOPSIS
-Output king unko
+Poop Sink Progress
+.EXAMPLE
+Show-PoopProgress -Width 10 -Seconds 10
 #>
-function Get-UnkoKing {
+function Show-PoopProgress {
     Param
     (
         [Parameter(Position = 1)]
-        [Int32] $Height = 10,
-
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Unko = "💩",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Eye = "👁",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Nose = "👃",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Mouth = "👄",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Crown = "👑",
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [String] $Space = "　"
+        [Int32] $Width = 10,
+        [Parameter(Position = 2)]
+        [Int32] $Seconds = 10,
+        [Parameter(Position = 2)]
+        [switch] $BoostClean = $false
     )
-
-
-    for ($i = 1; $i -lt $Height; $i++) {
-        switch ($i) {
-            1 {
-                # Output crown
-                $padding = [String] $space * [Int32] ($Height + 1)
-                Write-Output "${padding}${crown}${padding}"
-            }
-            3 {
-                # Output eye
-                $unkoWithEye = "${unko}${eye}${unko}${eye}${unko}"
-                $padding = [String] $space * [Int32] ($Height - ($i - 1))
-                Write-Output ("{0}（{1}）{2}" -f $padding, $unkoWithEye, $padding)
-            }
-            4 {
-                $unkoWithNose = "${unko}${unko}${unko}${nose}${unko}${unko}${unko}" 
-                $padding = [String] $space * [Int32] ($Height - ($i - 1))
-                Write-Output ("{0}（{1}）{2}" -f $padding, $unkoWithNose, $padding)
-            }
-            5 {
-                # Output mouth
-                $unkoList = [String[]] @($unko) * [Int32] (2 * $i - 1)
-                $unkoList[4] = $mouth
-                $padding = [String] $space * [Int32] ($Height - ($i - 1))
-                Write-Output ("{0}（{1}）{2}" -f $padding, (-join $unkoList), $padding)
-            }
-            Default {
-                # Output unko
-                $repeatedUnko = [String] $unko * [Int32] (2 * $i - 1)
-                $padding = [String] $space * [Int32] ($Height - ($i - 1))
-                Write-Output ("{0}（{1}）{2}" -f $padding, $repeatedUnko, $padding)
-            }
-        }
+    $Interval = $Seconds / $Width * 1000
+    $Water = "$($PSStyle.BackGround.BrightCyan)　$($PSStyle.Reset)"
+    $Gap = $BoostClean ? "💩" : "　"
+    $Toilet = "🚽--"
+    $FrontBracket = "["
+    $BackBracket = "]"
+    $GoFront = "`e[0G"
+    for ($i = 1; $i -le $Width; $i++ ) {
+        $Ratio = "{0:0.0}%" -f $([Math]::Round($i/$Width *100, 1, [MidpointRounding]::AwayFromZero))
+        $PoopWay = "$($Water*($i-1)+"$($PSStyle.BackGround.BrightCyan)💩$($PSStyle.Reset)"+$Gap*($Width-$i))"
+        Write-Host "$($GoFront + $FrontBracket +$PoopWay + $BackBracket + $Toilet + $Ratio)" -NoNewline
+        Start-Sleep -Milliseconds $Interval
     }
-}
-
-<#
-.SYNOPSIS
-Set window title of your teminal to unko
-#>
-function Set-WindowTitleToUnko {
-    $host.UI.RawUI.WindowTitle = (Get-UnkoDictionary).Name | Get-Random
-}
-
-<#
-.SYNOPSIS
-Show big unko on your terminal
-#>
-function Get-BigUnko {
-    $base64Text = (Get-Content ./lib/bigunko.txt) -join ""
-    $bytes = [System.Convert]::FromBase64String($base64Text)
-    $unko = [System.Text.Encoding]::UTF8.GetString($bytes)
-    Write-Output $unko.Replace("\033", "$([char]0x1b)").Replace("\n", "")
+    Write-Host ""
 }
