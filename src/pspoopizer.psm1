@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-Output fizzbuzz with unko
+Output Poop from src char
 .EXAMPLE
-Get-UnkoFizzBuzz -Begin 30 -End 1
+Get-PoopFromChar -src "a"
 #>
 function Get-PoopFromChar {
     Param
@@ -11,9 +11,21 @@ function Get-PoopFromChar {
         [char] $src = ""
     )
     
-    # Write-Output $src
-    return $src
-    
+    switch ($src) {
+        '1' { return '[string]"$(([int[]][char[]]"💩")[1]%([int[]][char[]]"💩")[0])"[0]' }
+        '2' { return '[string]"$(([int[]][char[]]"💩")[1]-([int[]][char[]]"💩")[0])"[-1]' }
+        '3' { return '[string]"$(([int[]][char[]]"💩")[1]*([int[]][char[]]"💩")[1])"[0]' }
+        '4' { return '[string]"$(([int[]][char[]]"💩")[0]+([int[]][char[]]"💩")[0])"[-1]' }
+        '5' { return '[string]"$([int[]][char[]]"💩"[1])"[0]' }
+        '6' { return '[string]"$([int[]][char[]]"💩"[1])"[1]' }
+        '7' { return '[string]"$([int[]][char[]]"💩"[0])"[-1]' }
+        '8' { return '[string]"$(([int[]][char[]]"💩")[1]+([int[]][char[]]"💩")[1])"[-1]' }
+        '9' { return '[string]"$([int[]][char[]]"💩"[1])"[-1]' }
+        '0' { return '[string]"$(([int[]][char[]]"💩")[0]*([int[]][char[]]"💩")[0])"[1]' }
+        'A' { return '[char][int]("$([int[]][char[]]"💩"[1])"[1] + "$([int[]][char[]]"💩"[1])"[0])' }
+        'a' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        Default { return "" }
+    }
 }
 
 <#
