@@ -12,8 +12,9 @@ function Get-PoopFromChar {
     )
     
     switch ($src) {
-        {$_ -match "[0-9]"} { return "$(Get-PoopFromNum ([int]$src))" }
-        {$_ -match "[a-zA-Z]"} { return "`$(`[char][int]`"`$($(
+        { $_ -match "[0-9]" } { return "$(Get-PoopFromNum ([int]$src))" }
+        { $_ -match "[a-zA-Z]" } {
+            return "`$(`[char][int]`"`$($(
                             Get-PoopFromNum $(
                                 ([char[]][string][int][char]$src)[0]
                             )
@@ -21,23 +22,28 @@ function Get-PoopFromChar {
                             Get-PoopFromNum $(
                                 ([char[]][string][int][char]$src)[1]
                             )
-                        ))`")" }
+                        ))`")" 
+        }
         Default { return "" }
     }
 }
 
 <#
 .SYNOPSIS
-Output Poop string from Num
+Output Poop string from Number of single digit
 .EXAMPLE
-Get-PoopFromNum -src "1"
+Get-PoopFromNum -src 1
 #>
 function Get-PoopFromNum {
     Param
     (
         [Parameter(Position = 1)]
-        [char] $src = ""
+        [int] $src = 0
     )
+    if ($src -lt 0 -or $src -gt 9) {
+        $src
+        throw
+    }
     
     switch ($src) {
         1 { return "`"`$(([int[]][char[]]`"💩`")[1]%([int[]][char[]]`"💩`")[0])`"[0]" }
@@ -56,9 +62,9 @@ function Get-PoopFromNum {
 
 <#
 .SYNOPSIS
-Output fizzbuzz with unko
+Output poop string from normal string
 .EXAMPLE
-Get-UnkoFizzBuzz -Begin 30 -End 1
+Get-PoopsFromString -src srcstring
 #>
 function Get-PoopsFromString {
     
@@ -76,31 +82,25 @@ function Get-PoopsFromString {
 
 <#
 .SYNOPSIS
-Output fizzbuzz with unko
+Output Poop Happy Checker
 .EXAMPLE
-Get-UnkoFizzBuzz -Begin 30 -End 1
+Get-PoopHappyChecker -Width 30 -Height 10
 #>
-function Get-UnkoFizzBuzz {
+function Get-PoopHappyChecker {
     Param
     (
         [Parameter(Position = 1)]
-        [Int32] $Begin = 1,
+        [Int32] $Width = 60,
         [Parameter(Position = 2)]
-        [Int32] $End = 10
+        [Int32] $Height = 10
     )
 
-    $FizzMessage = "💩 < Fizz!"
-    $BuzzMessage = "🍺 < Buzz!"
-    $FizzBuzzMessage = "💩🍺 < FizzBuzz!"
-
-    foreach ($i in $Begin..$End) {
-        switch ($i) {
-            { $i % 3 -eq 0 } { Write-Output $FizzMessage };
-            { $i % 5 -eq 0 } { Write-Output $BuzzMessage };
-            { $i % 15 -eq 0 } { Write-Output $FizzBuzzMessage };
-            Default { Write-Output $i };
-        }
-    }
+    $LightPoop = "`e[48;5;15m💩`e[0m"
+    $DarkPoop = "`e[48;5;1m💩`e[0m"
+    $RightDirectionPoopBar = ($LightPoop + $DarkPoop) * ($Width / 2)
+    $ReverseDirectionPoopBar = ($DarkPoop + $LightPoop) * ($Width / 2)
+    $WallPoops = ($RightDirectionPoopBar + $ReverseDirectionPoopBar)* ($Height / 2)
+    write-host $WallPoops
 }
 
 <#
