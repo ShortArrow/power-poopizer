@@ -12,7 +12,7 @@ function Get-PoopFromChar {
     )
     
     switch ($src) {
-        '1' { return '[string]"$(([int[]][char[]]"💩")[1]%([int[]][char[]]"💩")[0])"[0]' }
+        '1' { return '"$(([int[]][char[]]"💩")[1]%([int[]][char[]]"💩")[0])"[0]' }
         '2' { return '[string]"$(([int[]][char[]]"💩")[1]-([int[]][char[]]"💩")[0])"[-1]' }
         '3' { return '[string]"$(([int[]][char[]]"💩")[1]*([int[]][char[]]"💩")[1])"[0]' }
         '4' { return '[string]"$(([int[]][char[]]"💩")[0]+([int[]][char[]]"💩")[0])"[-1]' }
@@ -23,7 +23,33 @@ function Get-PoopFromChar {
         '9' { return '[string]"$([int[]][char[]]"💩"[1])"[-1]' }
         '0' { return '[string]"$(([int[]][char[]]"💩")[0]*([int[]][char[]]"💩")[0])"[1]' }
         'A' { return '[char][int]("$([int[]][char[]]"💩"[1])"[1] + "$([int[]][char[]]"💩"[1])"[0])' }
+        'B' { return '[char][int]("$([int[]][char[]]"💩"[1])"[1] + "$([int[]][char[]]"💩"[1])"[0])' }
         'a' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'b' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'c' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'd' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'e' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'f' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'g' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'h' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'i' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'j' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'k' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'l' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'm' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'n' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'o' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'p' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'q' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'r' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        's' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        't' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'u' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'v' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'w' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'x' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'y' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
+        'z' { return '[char][int]("$([int[]][char[]]"💩"[1])"[-1] + "$([int[]][char[]]"💩"[0])"[-1])' }
         Default { return "" }
     }
 }
@@ -36,17 +62,20 @@ Get-UnkoFizzBuzz -Begin 30 -End 1
 #>
 function Get-PoopsFromString {
     
-    Write-Host("契約書だよ。そこに名前を書きな。")
-    
-    $keiyakusho = Read-Host
-    $name = $keiyakusho
-
-    Write-Host("フン。" + $name + "というのかい。贅沢な名だねぇ。")
-
-    $newNameIndex = Get-Random(($name).Length)
-    $newName = $name.Substring($newNameIndex, 1)
-
-    Write-Host("今からお前の名前は" + $newName + "だ。いいかい、" + $newName + "だよ。分かったら返事をするんだ、" + $newName + "!!")
+    Param
+    (
+        [Parameter(Position = 1)]
+        [string] $src = ""
+    )
+    $res = ""
+    foreach ($item in [char[]]$src) {
+        if ($res){
+            $res += " + $(Get-PoopFromChar $item)"
+        }else {
+            $res += (Get-PoopFromChar $item)
+        }
+    }
+    return $res
 }
 
 <#
