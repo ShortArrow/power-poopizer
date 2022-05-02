@@ -1,8 +1,8 @@
-$cpath=(Get-Location).Path+'\lib'
+$cpath=(Get-Location).Path+'\PowerPoopizer'
 
 Write-Host $cpath
 $params = @{
     Path = $cpath
-    NuGetApiKey = '????'
+    NuGetApiKey = '???'
 }
 Publish-Module @params
