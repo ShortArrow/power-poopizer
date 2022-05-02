@@ -7,17 +7,42 @@ Describe "main" {
     BeforeAll {
         Import-Module $here/src/$sut -Force -Scope Local
     }
-    It "can pooping one a" {
+    It "can pooping a" {
         $res = Invoke-Expression(Get-PoopFromChar "a")
-        $res | Should -Be "a"
-        
+        $res | Should -Be "a"   
     }
-    It "can pooping one 1" {
-        $res = Invoke-Expression(Get-PoopFromChar "1")
-        $res | Should -Be "1"
+    It "can pooping A" {
+        $res = Invoke-Expression(Get-PoopFromChar "A")
+        $res | Should -Be "A"   
     }
-    It "union test split Insert" {
-        $res = Invoke-Expression(Get-PoopsFromString "unko")
+    It "can pooping one A" {
+        $res = Get-PoopFromChar "A"
+        $res | Should -Be "`$([char][int]`"`$(`"`$([int[]][char[]]`"💩`"[1])`"[1])`$(`"`$([int[]][char[]]`"💩`"[1])`"[0])`")"
+    }
+    It "get pooping from '<target>'" -TestCases @(
+        @{target = "1"}
+        @{target = "2"}
+        @{target = "3"}
+        @{target = "4"}
+        @{target = "5"}
+        @{target = "6"}
+        @{target = "7"}
+        @{target = "8"}
+        @{target = "9"}
+        @{target = "0"}
+     ) {
+        $res = Invoke-Expression(Get-PoopFromChar $target)
+        $res | Should -Not -Be $null
+        $res | Should -Not -Be ''
+        $res | Should -Be $target
+    }
+    It "123" {
+        $res = Invoke-Expression (Get-PoopsFromString "123")
+        $res | Should -Be "123"
+    }
+    It "unko" {
+        $res = Invoke-Expression "$(Get-PoopsFromString "unko")"
+        # $res = "$(Get-PoopsFromString "ABC")"
         $res | Should -Be "unko"
     }
     AfterAll {
