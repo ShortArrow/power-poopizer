@@ -40,10 +40,15 @@ Describe "main" {
         $res = Invoke-Expression (Get-PoopsFromString "123")
         $res | Should -Be "123"
     }
-    It "unko" {
-        $res = Invoke-Expression "$(Get-PoopsFromString "unko")"
+    It "get poop string from '<target>'" -TestCases @(
+        @{target = "67"}
+        @{target = "aa"}
+        @{target = "AA"}
+        @{target = "A1"}
+     ) {
+        $res = Invoke-Expression $(Get-PoopsFromString $target)
         # $res = "$(Get-PoopsFromString "ABC")"
-        $res | Should -Be "unko"
+        $res | Should -Be $target
     }
     AfterAll {
     }

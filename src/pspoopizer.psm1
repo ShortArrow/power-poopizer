@@ -71,7 +71,7 @@ function Get-PoopsFromString {
     foreach ($item in [char[]]$src) {
         $res += "`$($(Get-PoopFromChar $item))"
     }
-    return "`"$res`""
+    return "`$(`"$res`")"
 }
 
 <#
