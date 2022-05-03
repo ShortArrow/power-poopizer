@@ -104,7 +104,7 @@ PrivateData       = @{
         ProjectUri = 'https://github.com/ShortArrow/power-poopizer'
 
         # A URL to an icon representing this module.
-        # IconUri = ''
+        IconUri = 'https://raw.githubusercontent.com/ShortArrow/power-poopizer/main/PackageIcon.png'
 
         # ReleaseNotes of this module
         ReleaseNotes = 'https://github.com/ShortArrow/power-poopizer'
