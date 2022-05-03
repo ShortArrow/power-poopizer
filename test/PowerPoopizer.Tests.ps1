@@ -1,3 +1,5 @@
+# Copyright 2022 @ShortArrow
+# The source code is licensed MIT. The website content is licensed CC BY 4.0, see LICENSE.
 using namespace System.Collections.Generic
 $here = "$(Split-Path -Parent (Split-Path -Parent $PSCommandPath))"
 $sut = (Split-Path -Leaf $PSCommandPath) -replace ".Tests.", "."

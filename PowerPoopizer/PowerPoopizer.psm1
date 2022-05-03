@@ -1,3 +1,6 @@
+# Copyright 2022 @ShortArrow
+# The source code is licensed MIT. The website content is licensed CC BY 4.0, see LICENSE.
+
 <#
 .SYNOPSIS
 Output Poop from src char
