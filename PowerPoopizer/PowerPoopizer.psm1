@@ -37,8 +37,7 @@ function Get-PoopFromNum {
         [int]$src = 0
     )
     if ([int]'0' -gt $src -or $src -gt [int]'9') {
-        return "Warning: Get-PoopFromNum encountered a parameter error"
-        throw
+        throw "Warning: Get-PoopFromNum encountered a parameter error"
     }
     
     switch ($src) {

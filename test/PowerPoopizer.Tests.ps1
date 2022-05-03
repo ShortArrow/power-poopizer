@@ -16,9 +16,21 @@ Describe "main" {
         $res = Invoke-Expression(Get-PoopFromNum 1)
         $res | Should -Be "1"
     }
-    It "can pooping 10" {
-        $res = Get-PoopFromNum 10
-        $res | Should -Be "parameter error"
+    It "can't pooping 10" {
+        try {
+            Get-PoopFromNum 10
+        }
+        catch {
+            $_.Exception.Message | Should -Be "Warning: Get-PoopFromNum encountered a parameter error"
+        }
+    }
+    It "can't pooping -1" {
+        try {
+            Get-PoopFromNum -1
+        }
+        catch {
+            $_.Exception.Message | Should -Be "Warning: Get-PoopFromNum encountered a parameter error"
+        }
     }
     It "can pooping a" {
         $res = Invoke-Expression(Get-PoopFromChar "a")
