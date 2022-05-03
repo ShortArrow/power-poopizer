@@ -12,7 +12,7 @@
 # RootModule        = './PowerPoopizer.psm1'
 
 # Version number of this module.
-ModuleVersion     = '0.0.0.1'
+ModuleVersion     = '0.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -75,7 +75,7 @@ FunctionsToExport = @('Get-PoopFromChar','Get-PoopsFromString','Get-PoopFromNum'
 # CmdletsToExport = @()
 
 # Variables to export from this module
-VariablesToExport = '*'
+# VariablesToExport = '*'
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
 # AliasesToExport = @()
@@ -107,7 +107,7 @@ PrivateData       = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'https://github.com/ShortArrow/power-poopizer'
 
         # Prerelease string of this module
         # Prerelease = ''
@@ -123,7 +123,7 @@ PrivateData       = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-# HelpInfoURI = ''
+HelpInfoURI = 'https://github.com/ShortArrow/power-poopizer'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''
