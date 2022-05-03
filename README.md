@@ -2,22 +2,33 @@
 
 It is PoopMaker that anyone can install and use.
 
-## How to use Poopizer
-
-### Installation of Poopizer
+## Install
 
 Copy and execute the following line on Powershell.
 Poopizer will now be on your console as well.
-I'm looking forward to it! !!
 
 ```powershell
-
+Install-Module -Name PowerPoopizer
 ```
 
-### 
+Or Manual Download from [Here](https://www.powershellgallery.com/packages/PowerPoopizer)
 
-Once installed, use this spell to launch Poopizer.
+## Usage
+
+Generate poop from any string.
 
 ```powershell
-Start-Poopizer
+Get-PoopsFromString -Src "Poop"
 ```
+
+## Advanced usage
+
+Override poop with a dollar bag.
+
+```powershell
+Get-PoopsFromString -Src "Poop" -OverridePoop "💰"
+```
+
+## LICENSE
+
+The source code is licensed MIT. The website content is licensed CC BY 4.0, see [LICENSE](PowerPoopizer/LICENSE).
