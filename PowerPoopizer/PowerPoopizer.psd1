@@ -9,10 +9,10 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule        = './PowerPoopizer.psm1'
+RootModule        = './PowerPoopizer.psm1'
 
 # Version number of this module.
-ModuleVersion     = '0.0.1'
+ModuleVersion     = '0.0.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ PowerShellVersion = '7.0'
 NestedModules     = @('PowerPoopizer.psm1')
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Get-PoopFromChar','Get-PoopsFromString','Get-PoopFromNum','Get-PoopHappyChecker','Get-UnkoBlink','Show-PoopProgress')
+FunctionsToExport = @('Get-PoopFromChar', 'Get-PoopsFromString', 'Get-PoopFromNum', 'Get-PoopHappyChecker', 'Get-UnkoBlink', 'Show-PoopProgress')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 # CmdletsToExport = @()
@@ -87,7 +87,7 @@ FunctionsToExport = @('Get-PoopFromChar','Get-PoopsFromString','Get-PoopFromNum'
 # ModuleList = @()
 
 # List of all files packaged with this module
-# FileList = @()
+FileList = @('PowerPoopizer.psm1', 'PowerPoopizer.psd1')
 
 # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 PrivateData       = @{
@@ -95,7 +95,7 @@ PrivateData       = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('poop', '💩', 'joke', 'ctf', 'shell art')
+        Tags = @('poop', '💩', 'joke', 'ctf', 'shell-art')
 
         # A URL to the license for this module.
         # LicenseUri = ''
