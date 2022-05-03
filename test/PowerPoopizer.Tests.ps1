@@ -2,10 +2,23 @@ using namespace System.Collections.Generic
 $here = "$(Split-Path -Parent (Split-Path -Parent $PSCommandPath))"
 $sut = (Split-Path -Leaf $PSCommandPath) -replace ".Tests.", "."
 $sut = $sut -replace ".ps1", ".psm1"
-Import-Module $here/src/$sut -Force -Scope Local
+$base = Split-Path $sut -LeafBase
+Import-Module "$here/$base/$sut" -Force -Scope Local
 Describe "main" {
     BeforeAll {
-        Import-Module $here/src/$sut -Force -Scope Local
+        $here = "$(Split-Path -Parent (Split-Path -Parent $PSCommandPath))"
+        $sut = (Split-Path -Leaf $PSCommandPath) -replace ".Tests.", "."
+        $sut = $sut -replace ".ps1", ".psm1"
+        $base = Split-Path $sut -LeafBase
+        Import-Module "$here/$base/$sut" -Force -Scope Local
+    }
+    It "can pooping 1" {
+        $res = Invoke-Expression(Get-PoopFromNum 1)
+        $res | Should -Be "1"
+    }
+    It "can pooping 10" {
+        $res = Get-PoopFromNum 10
+        $res | Should -Be "parameter error"
     }
     It "can pooping a" {
         $res = Invoke-Expression(Get-PoopFromChar "a")

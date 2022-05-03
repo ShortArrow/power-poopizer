@@ -12,16 +12,12 @@ function Get-PoopFromChar {
     )
     
     switch ($src) {
-        { $_ -match "[0-9]" } { return "$(Get-PoopFromNum ([int]$src))" }
+        { $_ -match "[0-9]" } { return "$($(Get-PoopFromNum ([int]"$src")))" }
         { $_ -match "[a-zA-Z]" } {
             return "`$(`[char][int]`"`$($(
-                            Get-PoopFromNum $(
-                                ([char[]][string][int][char]$src)[0]
-                            )
-                        ))`$($(
-                            Get-PoopFromNum $(
-                                ([char[]][string][int][char]$src)[1]
-                            )
+                            Get-PoopFromNum $("$(([char[]][string][int][char]$src)[0])")
+                            ))`$($(
+                            Get-PoopFromNum $("$(([char[]][string][int][char]$src)[1])")
                         ))`")" 
         }
         Default { return "" }
@@ -38,10 +34,10 @@ function Get-PoopFromNum {
     Param
     (
         [Parameter(Position = 1)]
-        [int] $src = 0
+        [int]$src = 0
     )
-    if ($src -lt 0 -or $src -gt 9) {
-        $src
+    if ([int]'0' -gt $src -or $src -gt [int]'9') {
+        return "Warning: Get-PoopFromNum encountered a parameter error"
         throw
     }
     
