@@ -5,8 +5,8 @@ It is PoopMaker that anyone can install and use.
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/powershell/powershell?label=PowerShell)
 ![version](https://img.shields.io/powershellgallery/v/PowerPoopizer)
 ![platform](https://img.shields.io/powershellgallery/p/DNS.1.1.1.1)
-![GitHub](https://img.shields.io/github/license/ShortArrow/power-poopizer?label=license)
-![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/Pester?label=pester)
+[![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/Pester?label=Pester)
 
 ![PackageIcon](https://raw.githubusercontent.com/ShortArrow/power-poopizer/main/PackageIcon.svg)
 
