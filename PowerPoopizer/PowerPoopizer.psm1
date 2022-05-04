@@ -17,13 +17,22 @@ function Get-PoopFromChar {
     )
     
     switch ($Src) {
-        { $_ -match "[0-9]" } { return "$($(Get-PoopFromNum ([int]"$Src") -OverridePoop $OverridePoop))" }
-        { $_ -match "[a-zA-Z]" } {
+        { $_ -cmatch "[0-9]" } { return "$($(Get-PoopFromNum ([int]"$Src") -OverridePoop $OverridePoop))" }
+        { $_ -cmatch "[a-cA-Z]" } {
             return "`$(`[char][int]`"`$($(
-                            Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[0])") -OverridePoop $OverridePoop
-                            ))`$($(
-                            Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[1])") -OverridePoop $OverridePoop
-                        ))`")" 
+                    Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[0])") -OverridePoop $OverridePoop
+                ))`$($(
+                    Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[1])") -OverridePoop $OverridePoop
+                ))`")" 
+        }
+        { $_ -cmatch "[d-z]" } {
+            return "`$(`[char][int]`"`$($(
+                        Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[0])") -OverridePoop $OverridePoop
+                ))`$($(
+                        Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[1])") -OverridePoop $OverridePoop
+                ))`$($(
+                        Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[2])") -OverridePoop $OverridePoop
+                ))`")" 
         }
         Default { return "" }
     }
@@ -158,7 +167,7 @@ function Show-PoopProgress {
     $Gap = $BoostClean ? "$($OverridePoop)" : "　"
     $GoFront = "`e[0G"
     for ($i = 1; $i -le $Width; $i++ ) {
-        $Ratio = "{0:0.0}%" -f $([Math]::Round($i/$Width *100, 1, [MidpointRounding]::AwayFromZero))
+        $Ratio = "{0:0.0}%" -f $([Math]::Round($i / $Width * 100, 1, [MidpointRounding]::AwayFromZero))
         $PoopWay = "$($Water*($i-1)+"$($PSStyle.BackGround.BrightCyan)$($OverridePoop)$($PSStyle.Reset)"+$Gap*($Width-$i))"
         Write-Host "$($GoFront + $OverrideFrontBracket +$PoopWay + $OverrideBackBracket + $OverrideToilet + $Ratio)" -NoNewline
         Start-Sleep -Milliseconds $Interval

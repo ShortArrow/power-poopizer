@@ -56,7 +56,32 @@ Describe "main" {
         @{target = "7"}
         @{target = "8"}
         @{target = "9"}
-        @{target = "0"}
+        @{target = "a"}
+        @{target = "b"}
+        @{target = "c"}
+        @{target = "d"}
+        @{target = "e"}
+        @{target = "f"}
+        @{target = "g"}
+        @{target = "h"}
+        @{target = "i"}
+        @{target = "j"}
+        @{target = "k"}
+        @{target = "l"}
+        @{target = "m"}
+        @{target = "n"}
+        @{target = "o"}
+        @{target = "p"}
+        @{target = "q"}
+        @{target = "r"}
+        @{target = "s"}
+        @{target = "t"}
+        @{target = "u"}
+        @{target = "v"}
+        @{target = "w"}
+        @{target = "x"}
+        @{target = "y"}
+        @{target = "z"}
      ) {
         $res = Invoke-Expression(Get-PoopFromChar $target)
         $res | Should -Not -Be $null
@@ -70,8 +95,13 @@ Describe "main" {
     It "get poop string from '<target>'" -TestCases @(
         @{target = "67"}
         @{target = "aa"}
+        @{target = "ab"}
         @{target = "AA"}
         @{target = "A1"}
+        @{target = "ABC"}
+        @{target = "gold"}
+        @{target = "golden"}
+        @{target = "nn"}
      ) {
         $res = Invoke-Expression $(Get-PoopsFromString $target)
         # $res = "$(Get-PoopsFromString "ABC")"
