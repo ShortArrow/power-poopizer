@@ -56,6 +56,13 @@ Describe "main" {
         @{target = "7"}
         @{target = "8"}
         @{target = "9"}
+     ) {
+        $res = Invoke-Expression(Get-PoopFromChar $target)
+        $res | Should -Not -Be $null
+        $res | Should -Not -Be ''
+        $res | Should -Be $target
+    }
+    It "get pooping from '<target>'" -TestCases @(
         @{target = "a"}
         @{target = "b"}
         @{target = "c"}
@@ -88,6 +95,51 @@ Describe "main" {
         $res | Should -Not -Be ''
         $res | Should -Be $target
     }
+    It "get pooping from '<target>'" -TestCases @(
+        @{target = "~"}
+        @{target = ")"}
+        @{target = "("}
+        @{target = "+"}
+        @{target = "="}
+        @{target = " "}
+        @{target = "!"}
+        @{target = "`""}
+        @{target = "#"}
+        @{target = "`$"}
+        @{target = "%"}
+        @{target = "&"}
+        @{target = "'"}
+        @{target = "("}
+        @{target = ")"}
+        @{target = "*"}
+        @{target = "+"}
+        @{target = ","}
+        @{target = "-"}
+        @{target = "."}
+        @{target = "/"}
+        @{target = ":"}
+        @{target = ";"}
+        @{target = "<"}
+        @{target = "="}
+        @{target = ">"}
+        @{target = "?"}
+        @{target = "@"}
+        @{target = "["}
+        @{target = "\"}
+        @{target = "]"}
+        @{target = "^"}
+        @{target = "_"}
+        @{target = "``"}
+        @{target = "{"}
+        @{target = "|"}
+        @{target = "}"}
+        @{target = "~"}
+     ) {
+        $res = Invoke-Expression(Get-PoopFromChar $target)
+        $res | Should -Not -Be $null
+        $res | Should -Not -Be ''
+        $res | Should -Be $target
+    }
     It "123" {
         $res = Invoke-Expression (Get-PoopsFromString "123")
         $res | Should -Be "123"
@@ -101,7 +153,13 @@ Describe "main" {
         @{target = "ABC"}
         @{target = "gold"}
         @{target = "golden"}
-        @{target = "nn"}
+        @{target = "44GG44KT44GT"}
+        @{target = "8J+SqQ=="}
+        @{target = "flag{unko_buri_buri}"}
+        @{target = "imctf{1r0nM41d3n}"}
+        @{target = "imctf{1r0nM41d3n}`e[0G"}
+        @{target = "imctf{1r0nM41d_*(*(^&^$%!!(())+3n}"}
+        @{target = "imctf{P}{P;l][lp[oio,';km,.m;/iopiopmM:LKJJ]]}}"}
      ) {
         $res = Invoke-Expression $(Get-PoopsFromString $target)
         # $res = "$(Get-PoopsFromString "ABC")"

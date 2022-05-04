@@ -18,14 +18,14 @@ function Get-PoopFromChar {
     
     switch ($Src) {
         { $_ -cmatch "[0-9]" } { return "$($(Get-PoopFromNum ([int]"$Src") -OverridePoop $OverridePoop))" }
-        { $_ -cmatch "[a-cA-Z]" } {
+        { $_ -cmatch "[ -c]" } {
             return "`$(`[char][int]`"`$($(
                     Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[0])") -OverridePoop $OverridePoop
                 ))`$($(
                     Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[1])") -OverridePoop $OverridePoop
                 ))`")" 
         }
-        { $_ -cmatch "[d-z]" } {
+        { $_ -cmatch "[d-~]" } {
             return "`$(`[char][int]`"`$($(
                         Get-PoopFromNum $("$(([char[]][string][int][char]$Src)[0])") -OverridePoop $OverridePoop
                 ))`$($(
