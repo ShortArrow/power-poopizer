@@ -1,4 +1,7 @@
-# Overview
+# PowerPoopizer
+
+![version](https://img.shields.io/powershellgallery/v/PowerPoopizer) ![platform](https://img.shields.io/powershellgallery/p/DNS.1.1.1.1)
+![licence](https://img.shields.io/github/license/ShortArrow/power-poopizer)
 
 It is PoopMaker that anyone can install and use.
 
