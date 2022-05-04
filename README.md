@@ -1,8 +1,10 @@
 # Overview
 
+It is PoopMaker that anyone can install and use.
+
 ![PackageIcon](https://raw.githubusercontent.com/ShortArrow/power-poopizer/main/PackageIcon.svg)
 
-It is PoopMaker that anyone can install and use.
+![usage](usage.gif)
 
 ## Install
 
