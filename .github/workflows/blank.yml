@@ -17,10 +17,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform a Pester test from the command-line
-        shell: pwsh
-        run: Test-Path resultsfile.log | Should -Be $true
-      - name: Perform a Pester test from the Tests.ps1 file
+      - name: Perform a Pester test
         shell: pwsh
         run: |
-          Invoke-Pester Unit.Tests.ps1 -Passthru
+          Invoke-Pester -Passthru
