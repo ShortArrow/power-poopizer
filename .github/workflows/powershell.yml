@@ -15,8 +15,12 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Perform a Poopizer
+      - name: Install Poopizer
         shell: pwsh
-        run: Install-Module -Name PowerPoopizer -Force && Get-PoopsFromString -Src "Poop"
+        run: Install-Module -Name PowerPoopizer -Force 
+      - name: Poop
+        shell: pwsh
+        run: Get-PoopsFromString -Src "Poop"
       - name: Override
+        shell: pwsh
         run: Get-PoopsFromString -Src "Poop" -OverridePoop "💰"
