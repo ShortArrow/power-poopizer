@@ -17,8 +17,6 @@ jobs:
         uses: actions/checkout@v3
       - name: Perform a Poopizer
         shell: pwsh
-        run: Install-Module -Name PowerPoopizer -Force
-      - name: Run
-        run: Get-PoopsFromString -Src "Poop"
+        run: Install-Module -Name PowerPoopizer -Force && Get-PoopsFromString -Src "Poop"
       - name: Override
         run: Get-PoopsFromString -Src "Poop" -OverridePoop "💰"
